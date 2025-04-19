@@ -7,3 +7,5 @@ create a company route that display all companies
 - company employees count
 '''
 ![Screenshot](images/Task1.png)
+
+[Click here to view or download the result ScreenShots (PDF)](ScreenShots.pdf)
