@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <title>Companys</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        color: #333;
+        text-align: center;
+      }
+      h1 {
+        color: #4caf50;
+      }
+      table {
+        width: 80%;
+        margin: 20px auto;
+        border-collapse: collapse;
+      }
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 8px;
+      }
+      th {
+        background-color: #4caf50;
+        color: white;
+      }
+      footer {
+        background-color: #fff;
+        color: black;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+    }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+          <a class="navbar-brand" href="/">Navbar</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <a class="nav-link active" aria-current="page" href="/">Home</a>
+              <a class="nav-link" href="/companys">Companys</a>
+              <a class="nav-link" href="#">Pricing</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <h1>Comapnys List</h1>
+      <p>Welcome to the Companys page.</p>
+      <a class="btn btn-success" href="/companys/new">New Company</a></a>
+      <table>
+        <tr>
+          <th>Company ID</th>
+          <th>Company Name</th>
+          <th>Location</th>
+          <th>Description</th>
+          <th>Actions</th>
+        </tr>
+        {% for company in companys %}
+        <tr>
+          <td>{{ company.id }}</td>
+          <td>{{ company.name }}</td>
+          <td>{{ company.location }}</td>
+          <td>{{ company.description[:50] }}...</td>
+          <td><a class="btn btn-success" href="/companys/{{ company.id }}">View</a></td>
+        </tr>
+        {% endfor %}
+      </table>
+    </main>
+    <footer class="fixed-bottom">
+      <p>&copy; 2025 My Website</p>
+    </footer>
+  </body>
+</html>
